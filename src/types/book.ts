@@ -1,5 +1,5 @@
 export interface IBook {
-  id: string;
+  _id: string;
   title: string;
   author: string;
   genre: string;
@@ -7,13 +7,13 @@ export interface IBook {
   description?: string;
   copies: number;
   available: boolean;
+  
 }
 
 
 export interface IBorrow {
+  totalQuantity: number;
+    title: string;
+    isbn: string;
 
-  book: string; // MongoDB ObjectId represented as string
-  quantity: number;
-  dueDate: string; // ISO date string (e.g., "2025-07-05T00:00:00.000Z")
 }
-   

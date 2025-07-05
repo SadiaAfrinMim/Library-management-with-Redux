@@ -14,12 +14,12 @@ import { useState } from "react";
 
 
 const BorrowBookModal = ({ book, refetch }: { book: IBook; refetch: () => void }) => {
-  const [borrowBook, { isLoading }] = useBorrowBookMutation();
+  const [borrowBook, { isLoading }] = useBorrowBookMutation() ;
   const [formData, setFormData] = useState<IBorrow>({
-    book: book._id,
+    book:  book._id,
     quantity: 1,
     dueDate: new Date().toISOString().split("T")[0],
-  });
+  }) as any;
 
   const handleBorrow = async () => {
     await borrowBook(formData);

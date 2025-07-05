@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 import { useGetBooksQuery } from "@/api/baseapi";
 import type { IBook } from "@/types/book";
 import {
@@ -17,7 +17,7 @@ import DeleteBookModal from "@/components/modals/DeleteBookModal";
 import AddBookModal from "@/components/modals/AddBookModal"; // import AddBookModal
 
 const AllBooks = () => {
-  const { data, isLoading, isError, refetch } = useGetBooksQuery();
+  const { data, isLoading, isError, refetch } = useGetBooksQuery() as any;
   const books = data?.data;
 
   if (isLoading) return <p className="text-center">Loading books...</p>;

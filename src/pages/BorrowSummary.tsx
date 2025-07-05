@@ -2,7 +2,7 @@ import { useGetBorrowSummaryQuery } from "@/api/baseapi";
 import type { IBorrow } from "@/types/book";
 
 const BorrowSummary = () => {
-  const { data, isLoading, isError } = useGetBorrowSummaryQuery();
+  const { data, isLoading, isError } = useGetBorrowSummaryQuery() as any;
   console.log(data)
  
  
@@ -23,9 +23,9 @@ const BorrowSummary = () => {
         </thead>
         <tbody>
           {data?.data?.map((item:IBorrow) => (
-            <tr key={item.book?.isbn} className="text-center">
-              <td className="p-2 border">{item?.book?.title}</td>
-              <td className="p-2 border">{item?.book?.isbn}</td>
+            <tr key={item.isbn} className="text-center">
+              <td className="p-2 border">{item?.title}</td>
+              <td className="p-2 border">{item?.isbn}</td>
               <td className="p-2 border">{item?.totalQuantity}</td>
             </tr>
           ))}

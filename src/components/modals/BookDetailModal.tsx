@@ -10,9 +10,10 @@ import {
 import { Button } from "@/components/ui/button";
 import { useGetBookByIdQuery } from "@/api/baseapi";
 
+
 const BookDetailModal = ({ bookId }: { bookId: string }) => {
-  const { data } = useGetBookByIdQuery(bookId);
-  const book = data?.data;
+  const { data } = useGetBookByIdQuery(bookId) as any;
+const book = data?.data;
 
   return (
     <Dialog>
