@@ -34,6 +34,7 @@ const AddBook = () => {
     e.preventDefault();
     try {
       await addBook({ ...formData, available: true }).unwrap();
+     
       navigate("/books");
     } catch (error) {
       console.error("Add book failed", error);

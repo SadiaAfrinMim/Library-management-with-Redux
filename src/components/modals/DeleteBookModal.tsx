@@ -9,6 +9,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { useDeleteBookMutation } from "@/api/baseapi";
 import type { IBook } from "@/types/book";
+import { Trash2 } from "lucide-react";
 
 const DeleteBookModal = ({ book, refetch }: { book: IBook; refetch: () => void }) => {
   const [deleteBook, { isLoading }] = useDeleteBookMutation();
@@ -21,7 +22,9 @@ const DeleteBookModal = ({ book, refetch }: { book: IBook; refetch: () => void }
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="destructive">Delete</Button>
+        <Button variant="destructive" className="flex bg-red-400 items-center gap-1">
+  <Trash2 size={18} /> 
+</Button>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>

@@ -11,6 +11,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { useState } from "react";
 import { useUpdateBookMutation } from "@/api/baseapi";
 import type { IBook } from "@/types/book";
+import { Pencil } from "lucide-react";
 
 const EditBookModal = ({ book, refetch }: { book: IBook; refetch: () => void }) => {
   const [formData, setFormData] = useState({
@@ -32,7 +33,9 @@ const EditBookModal = ({ book, refetch }: { book: IBook; refetch: () => void }) 
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button>Edit</Button>
+         <Button variant="secondary" className="flex bg-yellow-400 items-center gap-1">
+          <Pencil size={18} />
+        </Button>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>

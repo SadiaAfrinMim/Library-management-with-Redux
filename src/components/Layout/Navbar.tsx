@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
+import { ModeToggle } from "../mode-toggle";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -24,6 +25,9 @@ const Navbar = () => {
             <Link to="/borrow-summary" className="hover:text-blue-400 transition">
               Borrow Summary
             </Link>
+            <div>
+              <ModeToggle></ModeToggle>
+            </div>
           </div>
 
           {/* Mobile Menu Button */}

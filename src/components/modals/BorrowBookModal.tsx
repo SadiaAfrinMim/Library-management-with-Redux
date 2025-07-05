@@ -9,17 +9,18 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useBorrowBookMutation } from "@/api/baseapi";
-import type { IBook, IBorrow } from "@/types/book";
+import type { IBook } from "@/types/book";
 import { useState } from "react";
+import { Hand } from "lucide-react";
 
 
 const BorrowBookModal = ({ book, refetch }: { book: IBook; refetch: () => void }) => {
   const [borrowBook, { isLoading }] = useBorrowBookMutation() ;
-  const [formData, setFormData] = useState<IBorrow>({
+  const [formData, setFormData] = useState<any>({
     book:  book._id,
     quantity: 1,
     dueDate: new Date().toISOString().split("T")[0],
-  }) as any;
+  }) ;
 
   const handleBorrow = async () => {
     await borrowBook(formData);
@@ -29,7 +30,13 @@ const BorrowBookModal = ({ book, refetch }: { book: IBook; refetch: () => void }
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="secondary">Borrow</Button>
+        <Button
+  
+  className="flex items-center gap-1 bg-slate-500 hover:bg-indigo-500 text-white px-3 py-1 rounded-md"
+>
+  <Hand size={16} />
+  Borrow
+</Button>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
